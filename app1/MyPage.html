@@ -1,0 +1,25 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+
+    <button type="button" id="id_send_bid">Send Bid!</button><br>
+    Last bid: <span id="last_bid"></span>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}
+
+{{ block scripts }}
+    <script>
+        const send_bid = document.getElementById('id_send_bid');
+        const last_bid = document.getElementById('last_bid');
+        
+        send_bid.addEventListener('click', function() {
+            let rng_value = Math.floor(Math.random() * 100);
+            last_bid.innerText = rng_value;
+            liveSend(rng_value);
+        });
+    </script>
+{{ endblock }}
